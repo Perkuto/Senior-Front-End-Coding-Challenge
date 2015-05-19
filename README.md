@@ -1,4 +1,4 @@
-# Senior-Front-End-Coding-Challenge
+# Coding Challenge
 
 Use Flickr API to create shareable walls of pictures based on a keyword search query.
 
