@@ -1,9 +1,11 @@
 # Coding Challenge
+Submit your pull request to this repository and provide product preview URL.
 
-Use Flickr API to create shareable walls of pictures based on a keyword search query.
+### Project Guidelines
+* Create shareable walls of pictures based on keyword search query
+* Use [Flickr API](https://www.flickr.com/services/api)
 
 ### Technical Guidelines
-* https://www.flickr.com/services/api
 * Javascript Framework
 * Responsive
 
