@@ -20,7 +20,7 @@
 	<style>
 		#search input{width:100%;padding:20px;font-size:20px;}
 		img{max-width:100%;}
-		#result{margin-top:50px;padding-bottom:200px;}
+		#result{margin-top:50px;padding-bottom:400px;}
 	</style>
 	
   </head>
@@ -49,11 +49,16 @@
 	
 	<script>
 	
+		var page = 1;
+	
 		$(function(){
-			
+		
+			getKeyword();
+						
 			$('#search input').focus();
 			
-			$('#search input').keyup(function(){			
+			$('#search input').keyup(function(){	
+				page = 1;
 				search_input_keyup(true);			
 			});
 			
@@ -69,16 +74,27 @@
 			console.log( $('#search input').val() );
 			var text = $('#search input').val();
 			
-			fetch_data(text,clear);
+			if(text.length>0){
+				fetch_data(text,clear);
+			}
+			else{
+				clearResult();
+			}
 		}
 		
 		function clearResult(){
-			$('#result').html('');
+			$('#result .row').html('');
 		}
 		
 		function fetch_data(text,clear){
-			url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=5f588edf89c1acce3b1027e05d119318&tags=[[tags]]&format=json&nojsoncallback=1&per_page=6';
+			url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=5f588edf89c1acce3b1027e05d119318&tags=[[tags]]&format=json&nojsoncallback=1&per_page=6&page=[[page]]';
 			url = url.replace('[[tags]]',text);
+			
+			if(!clear){
+				page++;
+			}
+			
+			url = url.replace('[[page]]',page);
 			console.log(url);
 			
 			data = {};
@@ -98,22 +114,31 @@
 			
 			if(clear){
 				clearResult();
-			}
-			
-			
+			}			
 			
 			for(i=0;i<photoList.length;i++) {
 			
 				photo = photoList[i];
-				t_url = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "c.jpg";
+				t_url = "https://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + "c.jpg";
 				
 				var pic = '<div class="col-xs-12 col-md-4 text-center"><img src="' + t_url + '"/></div>';
 								
 				$('#result .row').append(pic);
+				
+			}		
+			
+		}
+		
+		function getKeyword(){
+		
+			console.log(window.location.href);
+			last = window.location.href.lastIndexOf('/');
+			key = window.location.href.substring(last+1,window.location.href.length);
+			//console.log(key);
+			if(key.length>0){
+				$('#search input').val(key);
+				search_input_keyup(true);
 			}
-			
-			
-			
 		}
 	
 	</script>
