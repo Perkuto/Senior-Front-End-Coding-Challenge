@@ -1,0 +1,86 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 27, 2015, 3:16:39 PM
+    Author     : Lito
+*/
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Arial",sans-serif;
+    background-color: #eee;
+}
+
+.container{
+    margin: 0;
+    padding: 0;
+}
+
+.container .search-bar{
+    background-color: #000;   
+    padding: 20px 10px 5px;
+    position: relative;
+    width: 100%
+    
+}
+
+.container .search > div{
+    padding: 0;
+}
+
+.container .search-bar button::before{
+    content: "\f002";
+    font-family: "FontAwesome";
+    font-size: 22px;
+}
+
+.content-container{
+    padding: 20px;
+}
+
+.content-container ul li{
+     padding: 10px;
+}
+.content-container ul li .item{
+     border: 1px dashed #ccc;
+     background-color: #fff;
+     padding: 5px;
+     position: relative;
+     cursor: pointer;
+     width: 100%;
+}
+
+.content-container ul li .item img{
+     width: 100%;
+     height: 300px;
+}
+
+.content-container .caption{
+    width: 100%;
+    background-color: #EEE;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+.content-container .caption p{
+    color: #fff;
+    padding: 10px;
+}
+
+
+#loader_screen {
+	position: fixed;
+        opacity: 0.9;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(../img/Preloader_10.gif) center no-repeat #fff;
+        
+}
