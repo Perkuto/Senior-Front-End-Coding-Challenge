@@ -7,6 +7,10 @@
     }
 }
 
+input[type=search] {
+    -webkit-appearance: none;
+}
+
 .ga-search {
     max-width: 600px;
     margin: 0 auto;

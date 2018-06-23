@@ -17,9 +17,10 @@ export class InfiniteScrollDirective implements AfterViewInit{
     resizeEvent$: Observable<any>;
 
     private el: any;
-    private percent:number = 90;
 
     @Input() scrollElement;
+    @Input() percent:number = 70; 
+    @Input() debounceInterval = 250;   
     @Output() scrollAction: EventEmitter<any> = new EventEmitter();
 
     constructor(private element:ElementRef){
@@ -35,7 +36,7 @@ export class InfiniteScrollDirective implements AfterViewInit{
         this.scrollEvent$ = fromEvent(document, 'scroll');
         let requestOnScroll$ = this.scrollEvent$
             .pipe(
-                debounceTime(100),
+                debounceTime(this.debounceInterval),
                 distinctUntilChanged(),
                 map(() => ({
                     sH: document.body.clientHeight,
@@ -53,7 +54,7 @@ export class InfiniteScrollDirective implements AfterViewInit{
         this.resizeEvent$ = fromEvent(window, 'resize');
         let requestOnResize$ = this.resizeEvent$
             .pipe(
-                debounceTime(250),
+                debounceTime(this.debounceInterval),
                 distinctUntilChanged(),
                 map(() => ({
                     sH: this.el.scrollHeight,

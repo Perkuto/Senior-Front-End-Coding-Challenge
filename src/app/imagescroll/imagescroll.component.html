@@ -3,7 +3,7 @@
         <h3>Cound not find images for the keyword, please try another.</h3>
         <img src="assets/image/notFound.jpg" alt="Result not found">
     </div>
-    <ul class="ga-image-list" [hidden]="!noResult" infinite-scroll (scrollAction)="loadMoreImages()">
+    <ul class="ga-image-list" [hidden]="!noResult" infinite-scroll percent="80" debounceInterval="100" (scrollAction)="loadMoreImages()">
         <li *ngFor="let image of imageList">
             <img src="{{image.url}}.jpg" sizes="(max-width: 480px) 100vw,(max-width: 786px) 50vw, 30vw" srcset="{{image.url}}_n.jpg 300w,
                 {{image.url}}_n.jpg 350w,

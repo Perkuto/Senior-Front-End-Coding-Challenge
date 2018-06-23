@@ -39,11 +39,11 @@
 
 .ga-image-list li {
     box-shadow: 5px 11px 20px 3px rgba(1, 1, 1, 0.43);
-    flex: 30%;
+    flex: 24%;
     list-style-type: none;
-    max-width: 30%;
+    max-width: 24%;
     margin-bottom: 15px;
-    max-height: 210px;
+    max-height: 250px;
     overflow: hidden;
     text-align: center;
 }
@@ -51,12 +51,19 @@
 .ga-image-list img {
     width: auto;
     height: auto;
-    min-height: 210px;
+    min-height: 250px;
     min-width: 100%;
     margin: 0 -100%;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+@media screen and (max-width: 1280px) {
+    .ga-image-list li {
+        flex: 30%;
+        max-width: 30%;
+    }
 }
 
 @media screen and (max-width: 786px) {
