@@ -55,8 +55,7 @@ export class SearchBarComponent implements OnInit {
     }
 
     private _setSearch(query:string = ""){
-        const path = window.location.pathname;
-        this.location.replaceState(path + "#" + query);
+        this.location.replaceState(query);
     }
 
     private _handleDataSuccess(res){

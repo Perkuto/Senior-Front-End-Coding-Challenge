@@ -13,11 +13,11 @@ import { Image } from '../Model/Image';
 export class ImageScrollComponent implements OnInit{
 
     imageList: Image[];
-    noResult: boolean = true;
+    noResult: boolean = false;
     total: string = "0";
+    toEnd : boolean = false;
 
     private currentPage: number = 1;
-    private toEnd : boolean = false;
     private subscription: Subscription;
 
     loadMoreImages;
