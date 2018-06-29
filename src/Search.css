@@ -1,0 +1,15 @@
+.Search {
+    width:100%;
+    max-width:1300px;
+    margin-bottom:50px;
+    position:fixed;
+    top:0px;
+    z-index:999;
+
+    padding:20px 0 0;
+    background:#fff;
+
+}
+.search__input {
+    width:100%;
+}
