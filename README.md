@@ -1,3 +1,7 @@
+# Rajan Coding Challenge
+
+##install
+
 # Coding Challenge
 Fork this repository, complete challenge, submit pull request and provide product preview URL.
 
