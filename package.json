@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "ng build --prod --output-path dist --base-href 'https://FaniloRandria.github.io/Senior-Front-End-Coding-Challenge/'",
     "test": "ng test --no-watch",
     "lint": "ng lint",
     "e2e": "ng e2e"

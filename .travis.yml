@@ -24,6 +24,14 @@ before_script:
   - 'export DISPLAY=:99.0'
   - 'sh -e /etc/init.d/xvfb start'
 
+deploy:
+  on:
+    branch: develop
+  provider: pages
+  skip-cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist
+
 notifications:
   email:
     on_failure: change
