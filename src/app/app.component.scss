@@ -16,10 +16,24 @@
   outline: none;
 }
 
+.share-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
 @media screen and (min-width: 600px) {
   .search-field {
     margin-left: calc(25% - 100px);
     width: calc(50% + 194px);
+  }
+  .share-buttons {
+    top: 20%;
+    left: auto;
+    right: auto;
+    width: 10px;
   }
 }
 
