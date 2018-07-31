@@ -1,14 +1,14 @@
 import { AppPage } from './app.po';
 
-describe('workspace-project App', () => {
+describe('flickr-pictures App', () => {
   let page: AppPage;
 
   beforeEach(() => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should contain input type text', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to flickr-pictures!');
+    expect(page.getPhotosList()).toBeDefined();
   });
 });

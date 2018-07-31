@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  photoUrl: 'http://localhost:3000/image/?{id}',
+  apiProtocol: 'http',
+  apiHost: 'localhost:3000',
+  apiRestEndpoint: '/services-rest'
 };
 
 /*
