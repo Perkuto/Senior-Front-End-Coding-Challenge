@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Photo} from '../shared/photo';
 import {PhotoService} from '../shared/photo.service';
+import {Location} from '@angular/common';
 
 /**
  * Component for photos list.
@@ -17,7 +18,7 @@ export class PhotoListComponent implements OnInit, OnChanges {
 
   page: number;
 
-  constructor(private photoService: PhotoService) {
+  constructor(private photoService: PhotoService, private location: Location) {
     this.page = 1;
   }
 
@@ -35,6 +36,9 @@ export class PhotoListComponent implements OnInit, OnChanges {
   }
 
   private loadPhotos () {
+    if (this.keyword) {
+      this.location.go('/' + encodeURIComponent(this.keyword));
+    }
     this.photoService.getPhotos(this.keyword, this.page).subscribe(
       data => {
         if (data && data.photos) {

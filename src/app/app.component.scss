@@ -1,6 +1,7 @@
 .body {
   background-color: #ffffff;
   max-width: 1066px;
+  min-height: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -30,7 +31,7 @@
     width: calc(50% + 194px);
   }
   .share-buttons {
-    top: 20%;
+    top: 15%;
     left: auto;
     right: auto;
     width: 10px;

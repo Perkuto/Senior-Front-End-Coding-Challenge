@@ -3,11 +3,14 @@ import {AppComponent} from './app.component';
 import {PhotoListComponent} from './photos/photo-list/photo-list.component';
 import {PhotoComponent} from './photos/photo/photo.component';
 import {PhotoService} from './photos/shared/photo.service';
-import {EMPTY as observableEmpty} from 'rxjs';
+import {EMPTY as observableEmpty, Observable} from 'rxjs';
 import {FormsModule} from '@angular/forms';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {ShareButtonModule} from '@ngx-share/button';
 import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {Event} from '@angular/router/src/events';
+import {Location} from '@angular/common';
 
 
 describe('AppComponent', () => {
@@ -22,6 +25,12 @@ describe('AppComponent', () => {
     }
   }
   class HttpClientStub {
+  }
+  class RouterStub {
+    events: Observable<Event> = observableEmpty;
+  }
+  class LocationStub {
+    go () {}
   }
 
   /* BeforeEachs definition */
@@ -39,7 +48,9 @@ describe('AppComponent', () => {
       ],
       providers: [
         { provide: PhotoService, useClass: PhotoServiceStub},
-        { provide: HttpClient, useClass: HttpClientStub}
+        { provide: HttpClient, useClass: HttpClientStub},
+        { provide: Router, useClass: RouterStub},
+        { provide: Location, useClass: LocationStub},
       ]
     }).compileComponents();
   }));

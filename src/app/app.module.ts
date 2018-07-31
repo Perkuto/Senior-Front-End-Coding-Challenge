@@ -12,12 +12,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {ShareButtonModule} from '@ngx-share/button';
+import {RouterModule} from '@angular/router';
+import {RootComponent} from './root.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotoComponent,
-    PhotoListComponent
+    PhotoListComponent,
+    RootComponent
   ],
   imports: [
     BrowserModule,
@@ -27,12 +30,16 @@ import {ShareButtonModule} from '@ngx-share/button';
     HttpClientModule,
     HttpClientJsonpModule,
     InfiniteScrollModule,
+    RouterModule.forRoot(
+      [{path: '**', component: AppComponent}],
+      { useHash: true }
+      ),
     ShareButtonModule.forRoot()
   ],
   providers: [
     HttpService,
     PhotoService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [RootComponent]
 })
 export class AppModule { }

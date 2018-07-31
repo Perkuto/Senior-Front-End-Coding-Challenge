@@ -3,6 +3,10 @@
 @import '~@ngx-share/button/styles/share-buttons';
 @import '~@ngx-share/button/styles/themes/default/default-theme';
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #f0f0f0;
 }
