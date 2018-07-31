@@ -6,6 +6,8 @@ import {PhotoService} from './photos/shared/photo.service';
 import {EMPTY as observableEmpty} from 'rxjs';
 import {FormsModule} from '@angular/forms';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import {ShareButtonModule} from '@ngx-share/button';
+import {HttpClient} from '@angular/common/http';
 
 
 describe('AppComponent', () => {
@@ -19,6 +21,8 @@ describe('AppComponent', () => {
       return observableEmpty;
     }
   }
+  class HttpClientStub {
+  }
 
   /* BeforeEachs definition */
   beforeEach(async(() => {
@@ -30,10 +34,12 @@ describe('AppComponent', () => {
       ],
       imports: [
         FormsModule,
-        InfiniteScrollModule
+        InfiniteScrollModule,
+        ShareButtonModule.forRoot()
       ],
       providers: [
-        { provide: PhotoService, useClass: PhotoServiceStub}
+        { provide: PhotoService, useClass: PhotoServiceStub},
+        { provide: HttpClient, useClass: HttpClientStub}
       ]
     }).compileComponents();
   }));
