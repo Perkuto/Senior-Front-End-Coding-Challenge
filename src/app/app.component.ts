@@ -9,6 +9,8 @@ import {NavigationEnd, Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
+  url: string;
+
   keyword: string;
 
   constructor(private router: Router) {
@@ -29,5 +31,6 @@ export class AppComponent implements OnInit {
         this.keyword = decodeURIComponent(this.router.url);
       }
     }
+    this.url = this.router.url;
   }
 }
