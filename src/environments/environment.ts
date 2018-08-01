@@ -7,7 +7,8 @@ export const environment = {
   photoUrl: 'http://localhost:3000/image/?{id}',
   apiProtocol: 'http',
   apiHost: 'localhost:3000',
-  apiRestEndpoint: '/services-rest'
+  apiRestEndpoint: '/services-rest',
+  targetUrl: '/'
 };
 
 /*
