@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     if (keyword) {
       this.location.go('/' + encodeURIComponent(keyword));
     }
-    this.url = this.location.prepareExternalUrl(encodeURIComponent(keyword));
+    this.url = '/' + encodeURIComponent(keyword);
   }
 
   /**

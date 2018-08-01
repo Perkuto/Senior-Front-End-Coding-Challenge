@@ -14,7 +14,6 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {ShareButtonModule} from '@ngx-share/button';
 import {RouterModule} from '@angular/router';
 import {RootComponent} from './root.component';
-import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -39,9 +38,7 @@ import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common'
   ],
   providers: [
     HttpService,
-    Location,
-    PhotoService,
-    {provide: LocationStrategy, useClass: PathLocationStrategy},
+    PhotoService
 ],
   bootstrap: [RootComponent]
 })
