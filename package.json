@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start-dev": "concurrently \"npm run start-server\" \"npm run start-client\"",
+    "start-dev": "concurrently -k npm:start-server npm:start-client",
     "start-prod": "ng serve --prod",
     "start-client": "ng serve",
     "start-server": "node server/server.js",
@@ -12,7 +12,7 @@
     "test": "ng test --no-watch",
     "test-ci": "ng test --no-watch --code-coverage",
     "lint": "ng lint",
-    "e2e": "concurrently -k -s first \"npm run start-server\" \"ng e2e --port 4300\"",
+    "e2e": "concurrently -k -s first npm:start-server \"ng e2e --port 4300\"",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "private": true,
