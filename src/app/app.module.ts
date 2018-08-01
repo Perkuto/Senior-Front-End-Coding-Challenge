@@ -14,8 +14,6 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {ShareButtonModule} from '@ngx-share/button';
 import {RouterModule} from '@angular/router';
 import {RootComponent} from './root.component';
-import {APP_BASE_HREF} from '@angular/common';
-import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -40,8 +38,7 @@ import {environment} from '../environments/environment';
   ],
   providers: [
     HttpService,
-    PhotoService,
-    {provide: APP_BASE_HREF, useValue: environment.targetUrl}
+    PhotoService
 ],
   bootstrap: [RootComponent]
 })
