@@ -25,7 +25,7 @@ export class PhotoListComponent implements OnInit, OnChanges {
   constructor(private photoService: PhotoService) {
     this.page = 1;
     // Load photos only if keyword is not modified during debounceTime ms.
-    this.inputValue.pipe(debounceTime(500)).subscribe(x => {
+    this.inputValue.pipe(debounceTime(400)).subscribe(x => {
       this.page = 1;
       this.loadPhotos();
     });
