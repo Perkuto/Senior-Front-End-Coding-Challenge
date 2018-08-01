@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {filter} from 'rxjs/operators';
 import {NavigationEnd, Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-main',
@@ -9,11 +10,15 @@ import {NavigationEnd, Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
+  // URL for shareable buttons. Need to override default behavior to refresh the URL correctly.
   url: string;
 
+  // Keyword typed in the input and available in the url (http://xxx/#/<keyword>)
   keyword: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private location: Location) {
+    this.url = router.url;
+    // Listen to URL modifications, and update the input if modified
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((x) => this.updateKeyword());
@@ -23,6 +28,20 @@ export class AppComponent implements OnInit {
     this.updateKeyword();
   }
 
+  /**
+   * Update URL and shareable buttons when input is updated.
+   * @param {string} keyword The keyword typed in the input.
+   */
+  onKeywordChange (keyword: string) {
+    if (keyword) {
+      this.location.go('/' + encodeURIComponent(keyword));
+    }
+    this.url = '/' + encodeURIComponent(keyword);
+  }
+
+  /**
+   * Update the keyword in the input when the URL is updated.
+   */
   updateKeyword () {
     if (this.router.url) {
       if (this.router.url.startsWith('/')) {

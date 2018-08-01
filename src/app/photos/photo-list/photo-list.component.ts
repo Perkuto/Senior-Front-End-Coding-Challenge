@@ -1,7 +1,8 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Photo} from '../shared/photo';
 import {PhotoService} from '../shared/photo.service';
-import {Location} from '@angular/common';
+import {Subject} from 'rxjs';
+import {debounceTime} from 'rxjs/operators';
 
 /**
  * Component for photos list.
@@ -12,33 +13,43 @@ import {Location} from '@angular/common';
   templateUrl: './photo-list.component.html'
 })
 export class PhotoListComponent implements OnInit, OnChanges {
+
   @Input() keyword: string;
+
+  inputValue = new Subject();
 
   photos: Photo[];
 
   page: number;
 
-  constructor(private photoService: PhotoService, private location: Location) {
+  constructor(private photoService: PhotoService) {
     this.page = 1;
+    // Load photos only if keyword is not modified during debounceTime ms.
+    this.inputValue.pipe(debounceTime(500)).subscribe(x => {
+      this.page = 1;
+      this.loadPhotos();
+    });
   }
 
+  /**
+   * Called when @Input is modified
+   */
   ngOnChanges() {
-    this.page = 1;
-    this.loadPhotos();
+    this.inputValue.next(this.keyword);
   }
 
   ngOnInit() {
   }
 
+  /**
+   * Called by infiniteScroll directive
+   */
   onScroll() {
     this.page ++;
     this.loadPhotos();
   }
 
   private loadPhotos () {
-    if (this.keyword) {
-      this.location.go('/' + encodeURIComponent(this.keyword));
-    }
     this.photoService.getPhotos(this.keyword, this.page).subscribe(
       data => {
         if (data && data.photos) {
