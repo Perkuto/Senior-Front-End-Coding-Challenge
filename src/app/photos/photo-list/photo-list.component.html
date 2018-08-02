@@ -1,0 +1,9 @@
+<div class="grid"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="50"
+     (scrolled)="onScroll()">
+  <ng-container *ngFor="let photo of photos">
+    <app-photo class="photo" [photo]="photo"></app-photo>
+  </ng-container>
+</div>

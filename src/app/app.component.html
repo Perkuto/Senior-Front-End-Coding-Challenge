@@ -1,0 +1,15 @@
+<div class="body mat-elevation-z1">
+  <div class="share-buttons">
+    <share-button	[url]="url" button="facebook"></share-button>
+    <share-button [url]="url" button="twitter"></share-button>
+    <share-button [url]="url" button="google"></share-button>
+    <share-button [url]="url" button="email"></share-button>
+  </div>
+  <div class="top">
+    <input class="mat-subheading-2 mat-elevation-z5 search-field" type="text" spellcheck="false" [(ngModel)]="keyword"
+           (input)="onKeywordChange($event.target.value)" placeholder="Type a keyword">
+  </div>
+  <div class="content">
+    <app-photo-list [keyword]="keyword" class="photos"></app-photo-list>
+  </div>
+</div>
