@@ -39,6 +39,7 @@ export class PhotoListComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this.loadPhotos();
   }
 
   /**
