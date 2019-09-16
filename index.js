@@ -67,7 +67,7 @@ var queryNextImages = function (searchText, page, eightPerPage) {
     var url = "https://www.flickr.com/services/rest/?";
     url += "method=flickr.photos." + (searchText != "" ? "search" : "getRecent");
 
-    url += "&api_key=daaa76b1a77b481674443e38104c06a0";
+    url += "&api_key=1dd5bcecfbcee9f734816cff06abb490";
     if(searchText != "") url += "&text="+searchText;
     url += "&per_page="+(eightPerPage ? "8" : "12");
     url += "&page="+page;

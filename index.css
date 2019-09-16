@@ -86,7 +86,8 @@ div.main > div#photosHere > div.image {
 }
 
 div.main > div#photosHere > div.image > img {
-    max-width : 100%;
+    min-width : 100%;
+    min-height : 100%;
 }
 
 footer {
