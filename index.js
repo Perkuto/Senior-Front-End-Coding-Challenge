@@ -1,6 +1,7 @@
 var page;
 var loading;
 var searchBarInput;
+var currentIndex = 0;
 
 window.addEventListener("load", function() {
     loading = this.document.getElementById("loading");
@@ -8,7 +9,7 @@ window.addEventListener("load", function() {
 
     searchBarInput.value = window.location.hash.replace("#", "");
 
-    searchBarInput.addEventListener("keypress", function () {
+    searchBarInput.addEventListener("keyup", function () {
         window.location.hash = "#" + searchBarInput.value;
         restartRendering();
     });
@@ -57,6 +58,26 @@ var queryNextImages = function (searchText, page, eightPerPage) {
                 }
             }
             catch(ex) { }
+
+            setTimeout(function () {
+                while(currentIndex < photosHere.children.length) {
+                    var currentImage = photosHere.children[currentIndex].children[0];
+                    if(currentImage.clientWidth >= currentImage.clientHeight) {
+                        currentImage.style.width = "auto";
+                        currentImage.style.height = "100%";
+                    }
+                    else if(currentImage.clientWidth <= currentImage.clientHeight) {
+                        currentImage.style.width = "100%";
+                        currentImage.style.height = "auto%";
+                    }
+                    else {
+                        currentImage.style.width = "100%";
+                        currentImage.style.height = "100%";
+                    }
+
+                    currentIndex++;
+                }
+            }, 250);
 
             photosHere.parentElement.addEventListener("scroll", reactToScroll);
 
