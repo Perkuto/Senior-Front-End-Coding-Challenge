@@ -1,0 +1,140 @@
+* {
+    margin : 0;
+    padding: 0;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+header {
+    width : calc(100vw - 100px);
+
+    padding: 15px 50px;
+
+    background-color: #CCCCCC;
+}
+
+header > div {
+    display: inline-block;
+}
+
+header > div:first-child {
+    width : 400px;
+}
+
+header > div:last-child {
+    width : calc(100vw - 600px);
+
+    float: right;
+}
+
+header > div:last-child > input {
+    width : 100%;
+
+    font-size: 28px;
+}
+
+div.main {
+    height: calc(100vh - 107px);
+
+    overflow-x: auto;
+}
+
+div.main > div#loading {
+    width : 100%;
+    height: 100%;
+
+    position: fixed;
+
+    padding-left: calc(50vw - 32px);
+    padding-top: calc(50vh - 53px - 32px);
+    padding-right: calc(50vw - 32px);
+    padding-bottom: calc(50vh - 53px - 32px);
+
+    background-color: rgba(0,0,0,.5);
+}
+
+div.main > div#photosHere {
+    width : 1600px;
+
+    padding-left : calc((100vw - 1600px) / 2);
+    padding-right: calc((100vw - 1600px) / 2);
+}
+
+div.main > div#photosHere > div.image {
+    width : 350px;
+    height: 350px;
+
+    margin: 20px;
+
+    /*float: left;*/
+
+    border : 5px inset #000000;
+
+    display: inline-block;
+
+    overflow: hidden;
+}
+
+div.main > div#photosHere > div.image > img {
+}
+
+footer {
+    height: 40px;
+
+    bottom: 0;
+
+    background-color: #000000;
+}
+
+@media only screen and (max-width: 1600px) {
+    div.main > div#photosHere {
+        width : 1200px;
+    
+        padding-left : calc((100vw - 1200px) / 2);
+        padding-right: calc((100vw - 1200px) / 2);
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    div.main > div#photosHere {
+        width : 800px;
+    
+        padding-left : calc((100vw - 800px) / 2);
+        padding-right: calc((100vw - 800px) / 2);
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    header > div {
+        display: block;
+    }
+    
+    header > div:first-child {
+        width : auto;
+    }
+    
+    header > div:last-child {
+        width : calc(100vw - 100px);
+    
+        float: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    div.main > div#photosHere {
+        width : 400px;
+    
+        padding-left : calc((100vw - 400px) / 2);
+        padding-right: calc((100vw - 400px) / 2);
+    }
+}
