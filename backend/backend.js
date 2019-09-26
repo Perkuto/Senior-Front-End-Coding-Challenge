@@ -35,7 +35,7 @@ function searchFlickrForImages(keywords)
     promise = flickr.photos.getRecent()
   }
   else {
-    promise = flickr.photos.search({text: keywords, sort:"relevance"})
+    promise = flickr.photos.search({text: keywords, sort:"relevance", safe_search:1})
   }
   return promise;
 }

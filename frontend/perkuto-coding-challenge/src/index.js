@@ -7,7 +7,7 @@ class Body extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      results: [""]
+      results: []
     }
   }
   renderTile(photoUrl, index) {
@@ -41,7 +41,7 @@ class Tile extends React.Component {
 
   render() {
     return (
-        <img alt="aa" src={this.props.photoUrl}></img>
+        <img src={this.props.photoUrl}></img>
     );
   }
 }
