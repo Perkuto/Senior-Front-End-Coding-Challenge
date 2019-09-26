@@ -1,0 +1,24 @@
+{
+  "name": "senior-front-end-coding-challenge",
+  "version": "1.0.0",
+  "description": "Fork this repository, complete challenge, submit pull request and provide product preview URL.",
+  "main": "backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "proxy": "http://localhost:3001",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1337micro/Senior-Front-End-Coding-Challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1337micro/Senior-Front-End-Coding-Challenge/issues"
+  },
+  "homepage": "https://github.com/1337micro/Senior-Front-End-Coding-Challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "flickr-sdk": "^3.9.0"
+  }
+}
