@@ -1,0 +1,11 @@
+<h3>Wall Pictures</h3>
+
+<div class="container">
+    <div *ngFor="let picture of pictures">
+        <img [src]="'https://farm' +
+        picture.farm + '.staticflickr.com/' +
+        picture.server + '/' + picture.id + '_' 
+        + picture.secret + '.png'" alt="Italian Trulli">
+        <span>{{picture.title}}</span>
+    </div>
+</div>
