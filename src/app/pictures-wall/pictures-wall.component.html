@@ -1,6 +1,7 @@
 <h3>Wall Pictures</h3>
 
 <div class="container">
+    <app-search-pictures></app-search-pictures>
     <div class="row">
         <div *ngFor="let picture of pictures" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             <img [src]="'https://farm' +
@@ -9,5 +10,5 @@
             + picture.secret + '.png'" [alt]="picture.title"  
             class="img-thumbnail img-responsive">
         </div>
-</div>
+    </div>
 </div>

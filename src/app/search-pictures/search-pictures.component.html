@@ -1,1 +1,6 @@
-<p>search-pictures works!</p>
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
+    <div class="form-group">
+        <input id="text" type="text" class="form-control" formControlName="text">
+    </div>
+    <button class="btn btn-default" type="submit">Search</button>
+</form>
