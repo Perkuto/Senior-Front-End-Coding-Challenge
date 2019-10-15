@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PictureService } from '../services/picture.service';
-import { Photos } from '../interfaces/photos';
+import { Photo } from '../interfaces/photo';
 import { Input } from '@angular/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { Input } from '@angular/core';
   styleUrls: ['./pictures-wall.component.css']
 })
 export class PicturesWallComponent implements OnInit {
-  @Input() photos: Photos;
+  @Input() photos: Photo[];
 
   constructor(
     private pictureService: PictureService

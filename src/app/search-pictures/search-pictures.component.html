@@ -7,6 +7,9 @@
             </div>
             <button class="btn btn-default" type="submit" >Search</button>
         </form>
-        <app-pictures-wall [photos]="photos"></app-pictures-wall>
     </div>
+    <div class="row" *ngIf="photos !== undefined">
+        <app-pictures-wall [photos]="photos.photo"></app-pictures-wall>
+    </div>
+    <button class="btn btn-default" (click)="more()">...</button>
 </div>

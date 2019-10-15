@@ -8,10 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class PictureService {
 
-  static readonly apikey: string = "d05676b692da425dc5191805e2adfc56";
-  static readonly apiMethod: string = "flickr.photos.search";
-
-  static readonly flickrBaseUri: string ='https://www.flickr.com/services/rest/';
+  private static readonly apikey: string = "d05676b692da425dc5191805e2adfc56";
+  private static readonly apiMethod: string = "flickr.photos.search";
+  private static readonly flickrBaseUri: string ='https://www.flickr.com/services/rest/';
 
   constructor(
     private http: HttpClient
