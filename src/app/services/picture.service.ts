@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Photos } from '../interfaces/photos';
+import { Photo } from '../interfaces/photo';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -25,7 +26,7 @@ export class PictureService {
     .set('page', pageNumber.toString())
     .set('format', 'json')
     .set('nojsoncallback', '1');
-    return this.http.get<Photos>(PictureService.flickrBaseUri, {params: params});
+    return this.http.get<Photos>(PictureService.flickrBaseUri, {params});
   }
 
 }
