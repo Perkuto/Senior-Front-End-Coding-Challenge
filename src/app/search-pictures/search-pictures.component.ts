@@ -25,9 +25,9 @@ export class SearchPicturesComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(searchText: string) {
+  onSubmit(searchText) {
     console.warn('Request submitted', searchText);
-    this.pictureService.searchPictures(searchText)
+    this.pictureService.searchPictures(searchText.text, 50, 1)
       .subscribe((data: Photos) => this.photos = { ...(data as any).photos });
     this.searchForm.reset();
   }
