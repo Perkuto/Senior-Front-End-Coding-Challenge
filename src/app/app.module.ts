@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PicturesWallComponent } from './pictures-wall/pictures-wall.component';
 import { SearchPicturesComponent } from './search-pictures/search-pictures.component';
 
-import { PictureService } from './picture.service';
+import { PictureService } from './services/picture.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { PictureService } from './picture.service';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [PictureService],

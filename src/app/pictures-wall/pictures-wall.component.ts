@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import { pictures } from '../pictures';
-
+import { PictureService } from '../services/picture.service';
+import { Photos } from '../interfaces/photos';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-pictures-wall',
@@ -9,13 +9,11 @@ import { pictures } from '../pictures';
   styleUrls: ['./pictures-wall.component.css']
 })
 export class PicturesWallComponent implements OnInit {
-  pictures = pictures.photos.photo;
-  currentPage = pictures.photos.page;
-  pages = pictures.photos.pages;
-  perPage = pictures.photos.perpage;
-  total = pictures.photos.total;
+  @Input() photos: Photos;
 
-  constructor() { }
+  constructor(
+    private pictureService: PictureService
+  ) {}
 
   ngOnInit() {
   }

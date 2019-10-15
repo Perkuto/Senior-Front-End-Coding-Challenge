@@ -1,6 +1,12 @@
-<form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
-    <div class="form-group">
-        <input id="text" type="text" class="form-control" formControlName="text">
+<h3>Wall Pictures</h3>
+<div class="container">
+    <div class="row">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
+            <div class="form-group">
+                <input id="text" type="text" class="form-control" formControlName="text">
+            </div>
+            <button class="btn btn-default" type="submit">Search</button>
+        </form>
+        <app-pictures-wall [photos]="photos"></app-pictures-wall>
     </div>
-    <button class="btn btn-default" type="submit">Search</button>
-</form>
+</div>

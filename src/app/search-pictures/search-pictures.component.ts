@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-
-import { PictureService } from '../picture.service';
+import { Photos } from '../interfaces/photos';
+import { PictureService } from '../services/picture.service';
 
 @Component({
   selector: 'app-search-pictures',
@@ -10,6 +10,7 @@ import { PictureService } from '../picture.service';
 })
 export class SearchPicturesComponent implements OnInit {
   searchForm;
+  photos: Photos;
 
   constructor(
     private pictureService: PictureService,
@@ -25,8 +26,9 @@ export class SearchPicturesComponent implements OnInit {
   }
 
   onSubmit(searchText: string) {
-    // Send search text string to flickr API
-    console.warn('Search has been submitted', searchText);
+    console.warn('Request submitted', searchText);
+    this.pictureService.searchPictures(searchText)
+      .subscribe((data: Photos) => this.photos = { ...(data as any).photos });
     this.searchForm.reset();
   }
 
