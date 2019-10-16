@@ -7,7 +7,7 @@
             </div>
         </form>
     </div>
-    <div class="row" style="height: 450px; overflow-y: auto" appInfiniteScroll (scrolled)="more()" >
+    <div class="row" style="height: 450px; overflow-y: auto" appInfiniteScroll (scrolled)="loadMorePhotos()" >
         <app-pictures-wall [photos]="photos" ></app-pictures-wall>
     </div>
 </div>

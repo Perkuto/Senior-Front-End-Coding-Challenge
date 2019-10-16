@@ -31,12 +31,14 @@ export class SearchPicturesComponent implements OnInit {
   }
 
   onSubmit(searchText) {
-    if (searchText.text.trim().length === 0) {
+    const keyword: string = searchText.text as string;
+    if (keyword  === null) {
       return;
+    } else {
+      this.currentPage = 0;
+      this.loadPhotos(keyword.trim());
+      this.searchForm.reset();
     }
-    this.currentPage = 0;
-    this.loadPhotos(searchText.text);
-    this.searchForm.reset();
   }
 
   private loadPhotos(keyword: string) {
@@ -47,7 +49,7 @@ export class SearchPicturesComponent implements OnInit {
        });
   }
 
-  more() {
+  loadMorePhotos() {
     this.pictureService.searchPictures(this.lastKeyWord, SearchPicturesComponent.PER_PAGE, ++this.currentPage)
       .subscribe((data: Photos) => {
        this.photos = this.photos.concat(((data as any).photos as Photos).photo as Array<Photo>);
