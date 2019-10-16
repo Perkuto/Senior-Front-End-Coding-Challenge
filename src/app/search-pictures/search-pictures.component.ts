@@ -10,7 +10,7 @@ import { Photo } from '../interfaces/photo';
   styleUrls: ['./search-pictures.component.css']
 })
 export class SearchPicturesComponent implements OnInit {
-  private static readonly PER_PAGE: number = 30;
+  private static readonly PER_PAGE: number = 12;
 
   searchForm;
   lastSearch: string;
@@ -44,7 +44,7 @@ export class SearchPicturesComponent implements OnInit {
   }
 
   more() {
-    this.pictureService.searchPictures(this.lastSearch, 6, ++this.currentPage)
+    this.pictureService.searchPictures(this.lastSearch, SearchPicturesComponent.PER_PAGE, ++this.currentPage)
       .subscribe((data: Photos) => {
        this.photos = this.photos.concat(((data as any).photos as Photos).photo as Array<Photo>);
       });

@@ -8,5 +8,7 @@
             <button class="btn btn-default" type="submit" >Search</button>
         </form>
     </div>
-    <app-pictures-wall [photos]="photos" appInfiniteScroll (scrolled)="more()"></app-pictures-wall>
+    <div class="row" style="height: 450px; overflow-y: auto" appInfiniteScroll (scrolled)="more()" >
+        <app-pictures-wall [photos]="photos" ></app-pictures-wall>
+    </div>
 </div>
