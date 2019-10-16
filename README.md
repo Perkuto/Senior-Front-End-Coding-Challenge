@@ -9,4 +9,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Tests
 
 The tests were generate automaticaly with Angular CLI via scaffolding. I did not have the time to add some.
-I know it is important and I have to learn how to do them using Protractor.
+I know, it is important and I would have to learn how to do them using Protractor.
