@@ -9,12 +9,14 @@ import { PicturesWallComponent } from './pictures-wall/pictures-wall.component';
 import { SearchPicturesComponent } from './search-pictures/search-pictures.component';
 
 import { PictureService } from './services/picture.service';
+import { InfiniteScrollDirective } from './directives/infinite-scroll.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     PicturesWallComponent,
-    SearchPicturesComponent
+    SearchPicturesComponent,
+    InfiniteScrollDirective
   ],
   imports: [
     BrowserModule,

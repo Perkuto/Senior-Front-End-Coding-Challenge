@@ -9,7 +9,7 @@ import { Input } from '@angular/core';
   styleUrls: ['./pictures-wall.component.css']
 })
 export class PicturesWallComponent implements OnInit {
-  @Input() photos: Photo[];
+  @Input() photos: Array<Photo>;
 
   constructor(
     private pictureService: PictureService
