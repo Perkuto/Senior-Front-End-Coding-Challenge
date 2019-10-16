@@ -10,12 +10,12 @@ import { Photo } from '../interfaces/photo';
   styleUrls: ['./search-pictures.component.css']
 })
 export class SearchPicturesComponent implements OnInit {
-  private static readonly PER_PAGE: number = 12;
+  private static readonly PER_PAGE: number = 11;
 
-  searchForm;
-  lastSearch: string;
-  currentPage: number;
+  private lastKeyWord: string;
+  private currentPage: number;
   photos: Array<Photo>;
+  searchForm;
 
   constructor(
     private pictureService: PictureService,
@@ -24,27 +24,31 @@ export class SearchPicturesComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       text: ''
     });
-    this.lastSearch = '';
+    this.lastKeyWord = '';
   }
 
   ngOnInit() {
   }
 
   onSubmit(searchText) {
-    this.currentPage = 0;
-    this.lastSearch =  searchText.text;
-    if (this.lastSearch.trim().length === 0) {
+    if (searchText.text.trim().length === 0) {
       return;
     }
-    this.pictureService.searchPictures(this.lastSearch, SearchPicturesComponent.PER_PAGE, ++this.currentPage)
-      .subscribe((data: Photos) => {
-        this.photos = (((data as any).photos as Photos).photo as Array<Photo>);
-       });
+    this.currentPage = 0;
+    this.loadPhotos(searchText.text);
     this.searchForm.reset();
   }
 
+  private loadPhotos(keyword: string) {
+    this.lastKeyWord =  keyword;
+    this.pictureService.searchPictures(this.lastKeyWord, SearchPicturesComponent.PER_PAGE, ++this.currentPage)
+      .subscribe((data: Photos) => {
+        this.photos = (((data as any).photos as Photos).photo as Array<Photo>);
+       });
+  }
+
   more() {
-    this.pictureService.searchPictures(this.lastSearch, SearchPicturesComponent.PER_PAGE, ++this.currentPage)
+    this.pictureService.searchPictures(this.lastKeyWord, SearchPicturesComponent.PER_PAGE, ++this.currentPage)
       .subscribe((data: Photos) => {
        this.photos = this.photos.concat(((data as any).photos as Photos).photo as Array<Photo>);
       });
