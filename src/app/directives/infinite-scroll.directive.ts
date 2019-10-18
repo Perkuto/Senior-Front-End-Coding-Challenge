@@ -12,7 +12,7 @@ export class InfiniteScrollDirective {
   }
 
   @HostListener('scroll')
-  private onScroll() {
+  onScroll() {
     const currentPosition = this.el.nativeElement.offsetHeight + this.el.nativeElement.scrollTop;
     const max = this.el.nativeElement.scrollHeight;
     if ( currentPosition === max) {
