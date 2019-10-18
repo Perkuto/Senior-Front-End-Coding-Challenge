@@ -1,0 +1,7 @@
+<div *ngFor="let picture of photos" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <img [src]="'https://farm' +
+      picture.farm + '.staticflickr.com/' +
+      picture.server + '/' + picture.id + '_' 
+    + picture.secret + '_q.png'" [alt]="picture.title"  
+      class="img-thumbnail img-responsive" width="150" height="150">
+</div>

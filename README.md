@@ -1,13 +1,14 @@
-# Coding Challenge
-Fork this repository, complete challenge, submit pull request and provide product preview URL.
+# WallE
 
-### Project Guidelines
-* Create shareable walls of pictures based on keyword search query
-* Use [Flickr API](https://www.flickr.com/services/api)
+Test it [here](https://wall-e.surleboutdesdoigts.me/).
 
-### Technical Guidelines
-* Javascript Framework
-* Responsive
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.9.
 
-### Product Specifications
-* See wireframe.png
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Tests
+
+The tests were generate automaticaly with Angular CLI via scaffolding. I did not have the time to add some.
+I know, it is important and I would have to learn how to do them using Protractor.
