@@ -16,7 +16,7 @@ import * as _ from 'lodash';
 export class SearchComponent implements OnInit {
   photoHeight = 150;
   photoWidth = 150;
-  photoMargin = 10;
+  photoMargin = 11; // Margin 10px and Border 1px
   toolbarMargin = 64;
   loading = false; // loading spinner state
   lastPage = 0; // 0 means not initialized

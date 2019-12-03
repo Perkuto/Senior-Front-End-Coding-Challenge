@@ -40,10 +40,12 @@ export class FlickrService {
               perpage: response.photos.perpage,
               total: response.photos.total,
               photo: response.photos.photo.map(flickrPhoto => {
-                if (flickrPhoto.farm !== 0 || flickrPhoto.server !== '0') {
-                  return this.mapToPhoto(flickrPhoto);
+                // 0 in server and/or farm are invalid photos
+                if (flickrPhoto.farm === 0 || flickrPhoto.server === '0') {
+                  const photo404: Photo = { uri: '/assets/404.jpg', title: '404 not found' };
+                  return photo404;
                 } else {
-                  return { uri: '/assets/404.jpg', title: 'Bad photo' };
+                  return this.mapToPhoto(flickrPhoto);
                 }
               }),
             };
