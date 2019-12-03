@@ -37,6 +37,11 @@ I used:
 
   - demonstrate the need of tests and the way to implement it (ng test).
 
+- Special configuration:
+
+  - Environment configuration for dev and production release (same config, proof of concept),
+  - tsconfig.json adjusted to use paths alias, reducing paths for big project and making easier refacting.
+
 - Docker and docker compose
 
   - Build production bundles,
