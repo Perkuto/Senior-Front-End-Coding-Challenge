@@ -1,6 +1,6 @@
 import { FlickrPhotosResponse } from './flickr-photos-response';
 
-export interface FlickrSearchPhotosResponse {
+export class FlickrSearchPhotosResponse {
   stat: string;
   photos: FlickrPhotosResponse;
 }

@@ -1,6 +1,6 @@
 import { FlickrPhotoResponse } from './flickr-photo-response';
 
-export interface FlickrPhotosResponse {
+export class FlickrPhotosResponse {
   page: number;
   pages: number;
   perpage: number;

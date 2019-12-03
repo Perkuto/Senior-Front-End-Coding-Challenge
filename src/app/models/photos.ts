@@ -1,6 +1,6 @@
 import { Photo } from './photo';
 
-export interface Photos {
+export class Photos {
   page: number;
   pages: number;
   perpage: number;

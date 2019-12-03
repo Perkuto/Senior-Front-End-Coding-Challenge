@@ -1,4 +1,4 @@
-export interface FlickrPhotoResponse {
+export class FlickrPhotoResponse {
   id: string;
   owner: string;
   secret: string;
