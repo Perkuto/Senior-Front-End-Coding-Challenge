@@ -1,1 +1,18 @@
-<p>search works!</p>
+<div class="navigation">
+  <mat-toolbar color="primary">
+    <span>
+      <mat-form-field class="input-headline">
+        <input matInput placeholder="Keyword" type="text" [value]="keyword" [formControl]="keywordControl" />
+      </mat-form-field>
+    </span>
+    <span class="spacer"></span>
+    <span>Infitnite Scroll Application</span>
+  </mat-toolbar>
+</div>
+
+<div class="image-container">
+  <span *ngFor="let photo of photosResult$ | async">
+    <img src="{{ photo?.uri }}" class="image" alt="{{ photo?.title }}" />
+  </span>
+  <cdx-spinner *ngIf="loading"></cdx-spinner>
+</div>

@@ -1,0 +1,28 @@
+.navigation {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.input-headline {
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.image-container {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 64px;
+}
+
+.image {
+  height: 150px;
+  width: 150px;
+  border: 1px solid black;
+  margin: 10px 10px;
+}

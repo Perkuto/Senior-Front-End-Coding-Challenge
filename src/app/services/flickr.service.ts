@@ -39,7 +39,13 @@ export class FlickrService {
               pages: response.photos.pages,
               perpage: response.photos.perpage,
               total: response.photos.total,
-              photo: response.photos.photo.filter(photo => photo.farm).map(flickrPhoto => this.mapToPhoto(flickrPhoto)),
+              photo: response.photos.photo.map(flickrPhoto => {
+                if (flickrPhoto.farm !== 0 || flickrPhoto.server !== '0') {
+                  return this.mapToPhoto(flickrPhoto);
+                } else {
+                  return { uri: '/assets/404.jpg', title: 'Bad photo' };
+                }
+              }),
             };
           } else {
             return {

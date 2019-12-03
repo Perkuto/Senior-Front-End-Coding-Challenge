@@ -6,13 +6,12 @@ import { SearchComponent } from '@components/search/search.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/search',
-    pathMatch: 'full',
-  },
-  {
-    path: 'search',
     component: SearchComponent,
   },
+  // {
+  //   path: 'search',
+  //   component: SearchComponent,
+  // },
   {
     path: ':id',
     component: SearchComponent,
@@ -20,7 +19,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(
+      routes
+      // , { enableTracing: true }
+    ),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
