@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="text-center">Flickr</h1>
+  <div class="form-group">
+    <input type="search"
+      class="form-control"
+      [(ngModel)]="keyword"
+      (input)="this.keywordSubject.next($event)"
+      placeholder="Search images">
+  </div>
+
+  <div
+      class="search-results"
+      infiniteScroll
+      [infiniteScrollDistance]="1"
+      [infiniteScrollThrottle]="100"
+      (scrolled)="onScroll()"
+      [scrollWindow]="true">
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let image of images">
+      <div class="card">
+        <a href="{{image.url}}_b.jpg">
+          <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+</div>
