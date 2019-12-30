@@ -1,0 +1,30 @@
+.gallery {
+    display: grid;
+    background-color: $color-grey-light-1;
+    grid-template-columns: repeat(3, minmax(50rem, 1fr));
+    justify-items: start;
+    grid-gap: 1.5rem;
+    width: 100%;
+    padding: 2rem;
+    
+    @include respond(phone) {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+    &__item {
+        margin-left: auto;
+    }
+    &__img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+        overflow: hidden;
+
+        @include respond(phone) {
+            height: 50%;
+            width: 50%;
+            display: inline-block;
+        }
+    }
+}
+
