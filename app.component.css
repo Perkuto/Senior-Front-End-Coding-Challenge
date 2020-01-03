@@ -5,3 +5,8 @@
   .text-muted {
     color: #6c757d!important;
 }
+}
+.headerStyle { 
+  background-color: rgb(42, 167, 205);
+}
+
