@@ -1,0 +1,25 @@
+<div class="form-group mt-3">
+    <input type="search"
+      class="form-control"
+      [(ngModel)]="keyword"
+      (change)="flickrPhotosService.keywordStore.next(keyword)"
+      placeholder="Search image by tag">
+  </div>
+
+
+ <div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+
+<div class="row pt-3">         
+   <div class="col-md-4 container-fluid  p-3" *ngFor="let photo of photos">
+        <div class="card shadow h-100">
+                <a href="{{photo.url}}_b.jpg">
+                    <img src="{{photo.url}}_m.jpg" title="{{photo.title}}" class='fit-image img-responsive'>
+                </a>
+        </div>
+   </div>
+</div>
